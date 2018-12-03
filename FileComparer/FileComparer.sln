@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileComparer", "FileComparer\FileComparer.vcxproj", "{2050659E-5297-4AE0-8B81-DCFE568E85AF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileComparer", "FileComparer.vcxproj", "{2050659E-5297-4AE0-8B81-DCFE568E85AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
