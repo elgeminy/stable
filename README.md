@@ -1,1 +1,1 @@
-# stable
+FileComparer - compare files in the given directory. Mask '*' can be used.
