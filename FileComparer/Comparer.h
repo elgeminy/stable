@@ -12,8 +12,8 @@ class Comparer
 		ListOfFiles failed;
 	};
 
-	void BinaryCompare (File & f1, File & f2, std::promise <Res> && p);
-	void HashCompare (ListOfFiles & files, std::promise <Res> && p);
+	void BinaryCompare (File & f1, File & f2, std::promise <Res> p);
+	void HashCompare (ListOfFiles & files, std::promise <Res> p);
 
 public:
 	Comparer (std::map <uintmax_t, ListOfFiles> & files, bool find_all_hashes);

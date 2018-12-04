@@ -21,7 +21,6 @@ public:
 	static uintmax_t m_lMaxHeapSize;
 
 	File (std::filesystem::path && path);
-	File (const std::filesystem::path & path);
 	~File ();
 
 	File (const File &) = delete;
