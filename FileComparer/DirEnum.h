@@ -1,6 +1,5 @@
 
 #pragma once
-#include "File.h"
 
 using ListOfStrings = std::list <std::wstring>;
 using ListOfPaths = std::list <std::filesystem::path>;
