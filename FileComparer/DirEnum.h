@@ -39,14 +39,19 @@ class DirEnumerator
 	ListOfStrings m_inc_file_mask;
 	ListOfStrings m_inc_dir_mask;
 
+	ListOfStrings m_inc_path_mask;
+	ListOfStrings m_exc_path_mask;
+
 	bool m_opt_file = false;
 	bool m_opt_dir = false;
+	bool m_opt_path = false;
 
 private:
 	bool MatchMask (const std::wstring & mask, const std::wstring & str);
 
 	void AddFileList (ListOfStrings & list, ListOfStrings & add_to);
 	bool IsObjectIgnored (std::wstring obj, bool is_dir, uintmax_t filesize);
+	bool IsPathIgnored (std::wstring path);
 	void EnumerateDirectory (const std::filesystem::path & root);
 	void EnumerateDirectory_Win7 (const std::filesystem::path & root);
 	void EnumerateDirectory_Win7_Rec (const std::filesystem::path & root);
@@ -58,8 +63,10 @@ public:
 	bool SetScanDirectories (const ListOfStrings & list);
 	void AddExcludeDirectories (ListOfStrings & list);
 	void AddExcludeFiles (ListOfStrings & list);
+	void AddExcludePaths (ListOfStrings & list);
 	void AddIncludeDirectories (ListOfStrings & list);
 	void AddIncludeFiles (ListOfStrings & list);
+	void AddIncludePaths (ListOfStrings & list);
 	void SetFileLimit (uintmax_t minsize = 0, uintmax_t maxsize = (uintmax_t)-1);
 
 	void EnumerateDirectory ();

@@ -21,6 +21,7 @@ public:
 	static uintmax_t m_lMaxHeapSize;
 
 	File (std::filesystem::path && path);
+	File (std::filesystem::path && path, uintmax_t size);
 	~File ();
 
 	File (const File &) = delete;
@@ -34,10 +35,17 @@ public:
 		return m_filepath.c_str ();
 	}
 
+	inline std::wstring Ext () const noexcept
+	{
+		return m_filepath.extension ().wstring ();
+	}
+
 	inline uintmax_t Size () const noexcept
 	{
 		return m_size;
 	}
+
+	std::wstring SizeFormatted () const noexcept;
 
 	inline const std::string & Hash () const noexcept
 	{
