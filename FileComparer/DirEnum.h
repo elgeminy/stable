@@ -10,12 +10,9 @@ struct IDirEnumHandler
 
 	virtual void OnFileFound (std::filesystem::path && file, uintmax_t size) = 0;
 	virtual void OnFileFound (const std::filesystem::path & file, uintmax_t size) = 0;
-	virtual void OnFileIgnored (std::filesystem::path && file) = 0;
-	virtual void OnFileIgnored (const std::filesystem::path & file) = 0;
 
 	virtual void OnScanError (const std::string & error) = 0;
 };
-
 
 
 struct EnumException
