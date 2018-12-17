@@ -180,6 +180,7 @@
     <ClInclude Include="Comparer.h" />
     <ClInclude Include="DirEnum.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="FileComparer.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Sha1.h" />
   </ItemGroup>
@@ -188,6 +189,7 @@
     <ClCompile Include="DirEnum.cpp" />
     <ClCompile Include="File.cpp" />
     <ClCompile Include="fc_main.cpp" />
+    <ClCompile Include="FileComparer.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
