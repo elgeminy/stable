@@ -8,7 +8,7 @@ class File
 	std::filesystem::path m_filepath;
 	uintmax_t m_size = 0;
 
-	std::string m_hash;
+	std::wstring m_hash;
 	DWORD m_error = NO_ERROR;
 
 	ViewHandle m_pmap;
@@ -47,7 +47,7 @@ public:
 
 	std::wstring SizeFormatted () const noexcept;
 
-	inline const std::string & Hash () const noexcept
+	inline const std::wstring & Hash () const noexcept
 	{
 		return m_hash;
 	}

@@ -43,12 +43,16 @@ class DirEnumerator
 	bool m_opt_dir = false;
 	bool m_opt_path = false;
 
+	enum class ObjType
+	{
+		file, directory, path
+	};
+
 private:
 	bool MatchMask (const std::wstring & mask, const std::wstring & str);
 
 	void AddFileList (ListOfStrings & list, ListOfStrings & add_to);
-	bool IsObjectIgnored (std::wstring obj, bool is_dir, uintmax_t filesize);
-	bool IsPathIgnored (std::wstring path);
+	bool IsObjectIgnored (std::wstring & obj, uintmax_t filesize, ObjType type);
 	void EnumerateDirectory (const std::filesystem::path & root);
 	void EnumerateDirectory_Win7 (const std::filesystem::path & root);
 	void EnumerateDirectory_Win7_Rec (const std::filesystem::path & root);
