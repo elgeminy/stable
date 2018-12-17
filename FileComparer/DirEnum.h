@@ -11,6 +11,8 @@ struct IDirEnumHandler
 	virtual void OnFileFound (std::filesystem::path && file, uintmax_t size) = 0;
 	virtual void OnFileFound (const std::filesystem::path & file, uintmax_t size) = 0;
 
+	virtual void OnDirFound (const std::filesystem::path & dir) = 0;
+
 	virtual void OnScanError (const std::string & error) = 0;
 };
 
@@ -52,10 +54,9 @@ private:
 	bool MatchMask (const std::wstring & mask, const std::wstring & str);
 
 	void AddFileList (ListOfStrings & list, ListOfStrings & add_to);
-	bool IsObjectIgnored (std::wstring & obj, uintmax_t filesize, ObjType type);
+	bool IsObjectIgnored (std::wstring & obj, uintmax_t filesize, ObjType type, bool scan_dir_includes);
 	void EnumerateDirectory (const std::filesystem::path & root);
 	void EnumerateDirectory_Win7 (const std::filesystem::path & root);
-	void EnumerateDirectory_Win7_Rec (const std::filesystem::path & root);
 	void EnumerateDirectory_WinXp (const std::filesystem::path & root);
 
 public:
