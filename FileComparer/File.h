@@ -10,6 +10,7 @@ class File
 
 	std::wstring m_hash;
 	DWORD m_error = NO_ERROR;
+	bool m_filtering_result = true;
 
 	ViewHandle m_pmap;
 	FileHandle m_hmap;
@@ -62,8 +63,14 @@ public:
 		return m_error;
 	}
 
+	inline const bool FilteringResult () const noexcept
+	{
+		return m_filtering_result;
+	}
+
 	bool CalcHash () noexcept;
 	bool CompareTo (File & obj) noexcept;
+	bool MatchFilter (const std::list <std::wstring> & hashes, const std::basic_string <unsigned char> & content) noexcept;
 
 private:
 	bool OpenFile () noexcept;
