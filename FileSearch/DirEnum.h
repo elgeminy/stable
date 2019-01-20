@@ -24,6 +24,13 @@ struct EnumException
 
 class DirEnumerator
 {
+	struct Mask
+	{
+		std::wstring mask;
+		bool use_regex = true;
+	};
+	using ListOfMasks = std::list <Mask>;
+
 	IDirEnumHandler * m_pHandler = nullptr;
 
 	ListOfPaths m_dir_pathes;
@@ -32,14 +39,14 @@ class DirEnumerator
 	uintmax_t m_min_size = 0;
 	uintmax_t m_max_size = (uintmax_t)-1;
 
-	ListOfStrings m_exc_file_mask;
-	ListOfStrings m_exc_dir_mask;
+	ListOfMasks m_exc_file_mask;
+	ListOfMasks m_exc_dir_mask;
 
-	ListOfStrings m_inc_file_mask;
-	ListOfStrings m_inc_dir_mask;
+	ListOfMasks m_inc_file_mask;
+	ListOfMasks m_inc_dir_mask;
 
-	ListOfStrings m_inc_path_mask;
-	ListOfStrings m_exc_path_mask;
+	ListOfMasks m_inc_path_mask;
+	ListOfMasks m_exc_path_mask;
 
 	bool m_opt_file = false;
 	bool m_opt_dir = false;
@@ -51,9 +58,9 @@ class DirEnumerator
 	};
 
 private:
-	bool MatchMask (const std::wstring & mask, const std::wstring & str);
+	bool MatchMask (const Mask & mask, const std::wstring & str);
 
-	void AddFileList (ListOfStrings & list, ListOfStrings & add_to);
+	void AddFileList (ListOfStrings & list, ListOfMasks & add_to);
 	bool IsObjectIgnored (std::wstring & obj, uintmax_t filesize, ObjType type, bool scan_dir_includes);
 	void EnumerateDirectory (const std::filesystem::path & root);
 	void EnumerateDirectory_Win7 (const std::filesystem::path & root);
